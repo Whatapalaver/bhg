@@ -1,24 +1,25 @@
-# README
+# BHG - (Contract) Bridge Hand Generator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+NB. Still a Work In Progress
 
-Things you may want to cover:
+Inspired by a world in which 4 people are not allowed to gather around a table with a pack of cards.....
 
-* Ruby version
+This is a Rails app which will generate four hands and allow you to share the game code with friends far afield, so they can assemble their hands from disparate packs of cards.
 
-* System dependencies
+## Working Version
 
-* Configuration
+to follow..
 
-* Database creation
+## How to Run
 
-* Database initialization
+to follow..
 
-* How to run the test suite
+## How to Test
 
-* Services (job queues, cache servers, search engines, etc.)
+to follow..
 
-* Deployment instructions
+## How to Deploy
 
-* ...
+to follow..
+
+...
