@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Seed:</strong>
+  <%= @game.seed %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @game.name %>
+</p>
+
+<h2>Game Hands</h2>
+<% for game_hand in @game.game_hands %>
+  <ul>
+    <p><%= game_hand.direction %></p>
+    <li><%= game_hand.cards %></li>
+  </ul>
+<% end %>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Add Game Hand', game_game_hands_path(@game) %> |
+<%= link_to 'Back', games_path %>
