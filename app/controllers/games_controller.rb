@@ -21,7 +21,6 @@ class GamesController < ApplicationController
     @game.game_hands.build(direction: :S, cards: deck.deal(13))
     @game.game_hands.build(direction: :E, cards: deck.deal(13))
     @game.game_hands.build(direction: :W, cards: deck.deal(13))
-
   end
 
   # GET /games/1/edit
@@ -76,6 +75,6 @@ class GamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def game_params
-      params.require(:game).permit(:seed, :name, :category)
+      params.require(:game).permit(:seed, :name, :category, game_hands_attributes: [:direction, :cards, :_destroy])
     end
 end
