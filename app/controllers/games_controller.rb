@@ -10,6 +10,10 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @north = @game.game_hands.find_by(direction: 'N').decorate
+    @east = @game.game_hands.find_by(direction: 'E').decorate
+    @south = @game.game_hands.find_by(direction: 'S').decorate
+    @west = @game.game_hands.find_by(direction: 'W').decorate
   end
 
   # GET /games/new
@@ -17,10 +21,10 @@ class GamesController < ApplicationController
     deck = Deck.new.shuffle!
 
     @game = Game.new()
-    @game.game_hands.build(direction: :N, cards: deck.deal(13))
-    @game.game_hands.build(direction: :S, cards: deck.deal(13))
-    @game.game_hands.build(direction: :E, cards: deck.deal(13))
-    @game.game_hands.build(direction: :W, cards: deck.deal(13))
+    @game.game_hands.build(direction: :N, cards: deck.deal(13).sort())
+    @game.game_hands.build(direction: :S, cards: deck.deal(13).sort())
+    @game.game_hands.build(direction: :E, cards: deck.deal(13).sort())
+    @game.game_hands.build(direction: :W, cards: deck.deal(13).sort())
   end
 
   # GET /games/1/edit
@@ -65,6 +69,10 @@ class GamesController < ApplicationController
       format.html { redirect_to games_url, notice: 'Game was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def search
+
   end
 
   private
