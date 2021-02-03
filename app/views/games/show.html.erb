@@ -18,10 +18,10 @@
     </div>
   </div>
 
-  <div class="flex">
+  <div class="d-flex justify-content-center mb-3 mt-3">
     <section class="tabs__tab js-tabs-tab is-active" data-tab="0">
         <h2>Game ID: <%= @game.id %></h2>
-        <p>Select your hand direction above</p>
+        <p>Select your hand direction above to reveal your hand</p>
     </section>
 
     <section class="tabs__tab js-tabs-tab" data-tab="1">
@@ -48,7 +48,9 @@
             </li>
           </ul>
         </div>
+
     </section>
+    
 
     <section class="tabs__tab js-tabs-tab" data-tab="2">
         <div class="card" style="width: 18rem;">
@@ -127,6 +129,9 @@
           </ul>
         </div>
     </section>
+  </div>
+  <div>
+    <p>If you need to share you device with your bridge partner please select the Game tab before handing over (to protect the sanctity of your cards)</p>
   </div>
 </div>
 

@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, :with => :show_errors
 
   # GET /games
   # GET /games.json
@@ -72,10 +73,20 @@ class GamesController < ApplicationController
   end
 
   def search
-
+    if search_params['search'].blank?  
+      redirect_to games_path, notice: 'Search was blank.'
+    else  
+      @game = Game.find(search_params[:search].to_i)
+      redirect_to @game
+    end
   end
 
   private
+
+    def show_errors(exception)
+      redirect_to games_path, notice: 'Game ID was not recognised'
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       @game = Game.find(params[:id])
@@ -85,4 +96,9 @@ class GamesController < ApplicationController
     def game_params
       params.require(:game).permit(:seed, :name, :category, game_hands_attributes: [:direction, :cards, :_destroy])
     end
+
+    def search_params
+      params.permit(:search, :commit)
+    end
+  
 end

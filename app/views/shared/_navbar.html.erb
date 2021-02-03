@@ -6,9 +6,10 @@
       <%= link_to "Games", games_path, class: "nav-link" %>
       <%= link_to "About", about_path, class: "nav-link" %>
     </div>
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Enter Game Number</button>
-    </form>
+
+    <%= form_with url: search_page_path, class: "d-flex", method: :get do |form| %>
+      <%= form.text_field :search, placeholder: "search", class: "form-control me-2" %>
+      <%= form.submit "Enter Game Number", class: "btn btn-outline-success" %>
+    <% end %>
   </div>
 </nav>
