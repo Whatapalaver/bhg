@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   rescue_from ActiveRecord::RecordNotFound, :with => :show_errors
 
   # GET /games
@@ -77,7 +78,11 @@ class GamesController < ApplicationController
       redirect_to games_path, notice: 'Search was blank.'
     else  
       @game = Game.find_by_seed(search_params[:search].to_i)
-      redirect_to @game
+      if @game
+        redirect_to @game
+      else
+        redirect_to games_path, notice: 'Game ID was not recognised'
+      end
     end
   end
 

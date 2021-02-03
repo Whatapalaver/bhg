@@ -6,7 +6,16 @@
       <%= link_to "Games", games_path, class: "nav-link" %>
       <%= link_to "About", about_path, class: "nav-link" %>
     </div>
-
+    <div class="navbar-nav">
+    <% if user_signed_in? %>
+      <li class="text-white">Logged in as <strong><%= current_user.username %></strong></li>
+      <%= link_to 'Edit profile', edit_user_registration_path, class: "nav-link" %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %> |
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+    <% end %>
+    </div>
     <%= form_with url: search_page_path, class: "d-flex", method: :get do |form| %>
       <%= form.text_field :search, placeholder: "Game ID", class: "form-control me-2" %>
       <%= form.submit "Search for Game", class: "btn btn-outline-success" %>

@@ -1,6 +1,5 @@
 
 <div class="p-4 p-md-5 text-black rounded bg-light">
-<p id="notice"><%= notice %></p>
   <h1>Games</h1>
 
   <table class="table table-striped">
@@ -18,8 +17,10 @@
           <td><%= game.seed %></td>
           <td><%= game.category %></td>
           <td><%= link_to 'Show', game %></td>
-          <td><%= link_to 'Edit', edit_game_path(game) %></td>
-          <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if user_signed_in? %>
+            <td><%= link_to 'Edit', edit_game_path(game) %></td>
+            <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
