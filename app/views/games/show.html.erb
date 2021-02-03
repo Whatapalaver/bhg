@@ -1,24 +1,137 @@
-<p id="notice"><%= notice %></p>
+<div class = "js-tabs p-4 p-md-5 text-black rounded bg-light">
+  <div class="btn-toolbar nav nav-tabs justify-content-center">
+    <div class="btn-group mr-2" role="group" aria-label="Game group">
+        <%= button_tag 'Game', type: 'button',
+          class: 'btn btn-outline-success m-1 js-tabs-button is-current', data: { tab: 0 } %>
+    </div>
+    <div class="btn-group mr-2" role="group" aria-label="Hands group">
+        <%= button_tag 'North', type: 'button',
+          class: 'btn btn-secondary m-1 js-tabs-button', data: { tab: 1 } %>
+        <%= button_tag 'East', type: 'button',
+          class: 'btn btn-secondary m-1 js-tabs-button', data: { tab: 2 } %>
+        <%= button_tag 'South', type: 'button',
+          class: 'btn btn-secondary m-1 js-tabs-button', data: { tab: 3 } %>
+        <%= button_tag 'West', type: 'button',
+          class: 'btn btn-secondary m-1 js-tabs-button', data: { tab: 4 } %>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mb-3 mt-3">
+    <section class="tabs__tab js-tabs-tab is-active" data-tab="0">
+        <h2>Game ID: <%= @game.seed %></h2>
+        <p>Select your hand direction above to reveal your hand</p>
+    </section>
+
+    <section class="tabs__tab js-tabs-tab" data-tab="1">
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            NORTH
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill pr-2"><i class="bi bi-suit-club" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @north.clubs %>
+            </li>
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-diamond" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @north.diamonds %>
+            </li>
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-heart" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @north.hearts %>
+            </li>
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-spade" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @north.spades %>
+            </li>
+          </ul>
+        </div>
+
+    </section>
+    
+
+    <section class="tabs__tab js-tabs-tab" data-tab="2">
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            EAST
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill pr-2"><i class="bi bi-suit-club" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @east.clubs %>
+            </li>
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-diamond" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @east.diamonds %>
+            </li>
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-heart" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @east.hearts %>
+            </li>
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-spade" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @east.spades %>
+            </li>
+          </ul>
+        </div>
+    </section>
+
+    <section class="tabs__tab js-tabs-tab" data-tab="3">
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            SOUTH
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill pr-2"><i class="bi bi-suit-club" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @south.clubs %>
+            </li>
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-diamond" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @south.diamonds %>
+            </li>
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-heart" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @south.hearts %>
+            </li>
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-spade" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @south.spades %>
+            </li>
+          </ul>
+        </div>
+    </section>
+
+    <section class="tabs__tab js-tabs-tab" data-tab="4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            WEST
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill pr-2"><i class="bi bi-suit-club" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @west.clubs %>
+            </li>
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-diamond" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @west.diamonds %>
+            </li>
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-heart" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @west.hearts %>
+            </li>
+            <li class="list-group-item border-0">
+              <span class="badge badge-secondary badge-pill pr-2"><i class="bi bi-suit-spade" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <%= @west.spades %>
+            </li>
+          </ul>
+        </div>
+    </section>
+  </div>
+  <div>
+    <p>If you need to share you device with your bridge partner please select the Game tab before handing over (to protect the sanctity of your cards)</p>
+  </div>
+</div>
 
 
-<p>
-  <strong>Seed:</strong>
-  <%= @game.seed %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @game.name %>
-</p>
-
-<h2>Game Hands</h2>
-<% for game_hand in @game.game_hands %>
-  <ul>
-    <p><%= game_hand.direction %></p>
-    <li><%= game_hand.cards %></li>
-  </ul>
-<% end %>
-
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Add Game Hand', game_game_hands_path(@game) %> |
-<%= link_to 'Back', games_path %>
+<%= link_to 'Back', games_path, class: "breadcrumb" %>

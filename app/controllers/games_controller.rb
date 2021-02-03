@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :search]
+  rescue_from ActiveRecord::RecordNotFound, :with => :show_errors
 
   # GET /games
   # GET /games.json
@@ -10,6 +12,10 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @north = @game.game_hands.find_by(direction: 'N').decorate
+    @east = @game.game_hands.find_by(direction: 'E').decorate
+    @south = @game.game_hands.find_by(direction: 'S').decorate
+    @west = @game.game_hands.find_by(direction: 'W').decorate
   end
 
   # GET /games/new
@@ -17,10 +23,10 @@ class GamesController < ApplicationController
     deck = Deck.new.shuffle!
 
     @game = Game.new()
-    @game.game_hands.build(direction: :N, cards: deck.deal(13))
-    @game.game_hands.build(direction: :S, cards: deck.deal(13))
-    @game.game_hands.build(direction: :E, cards: deck.deal(13))
-    @game.game_hands.build(direction: :W, cards: deck.deal(13))
+    @game.game_hands.build(direction: :N, cards: deck.deal(13).sort().map {|card| card.to_s}.join(" "))
+    @game.game_hands.build(direction: :S, cards: deck.deal(13).sort().map {|card| card.to_s}.join(" "))
+    @game.game_hands.build(direction: :E, cards: deck.deal(13).sort().map {|card| card.to_s}.join(" "))
+    @game.game_hands.build(direction: :W, cards: deck.deal(13).sort().map {|card| card.to_s}.join(" "))
   end
 
   # GET /games/1/edit
@@ -67,7 +73,25 @@ class GamesController < ApplicationController
     end
   end
 
+  def search
+    if search_params['search'].blank?  
+      redirect_to games_path, notice: 'Search was blank.'
+    else  
+      @game = Game.find_by_seed(search_params[:search].to_i)
+      if @game
+        redirect_to @game
+      else
+        redirect_to games_path, notice: 'Game ID was not recognised'
+      end
+    end
+  end
+
   private
+
+    def show_errors(exception)
+      redirect_to games_path, notice: 'Game ID was not recognised'
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       @game = Game.find(params[:id])
@@ -77,4 +101,9 @@ class GamesController < ApplicationController
     def game_params
       params.require(:game).permit(:seed, :name, :category, game_hands_attributes: [:direction, :cards, :_destroy])
     end
+
+    def search_params
+      params.permit(:search, :commit)
+    end
+  
 end
