@@ -1,6 +1,7 @@
 class GameHandsController < ApplicationController
   before_action :get_game
   before_action :set_game_hand, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /game_hands
   # GET /game_hands.json

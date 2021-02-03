@@ -15,6 +15,11 @@
     <div id="page-content">
       <div class="container" id="home-container">
         <%= render 'shared/navbar' %>
+        <% flash.each do |type, msg| %>
+          <div>
+            <%= msg %>
+          </div>
+        <% end %>
         <%= yield %>
         <%= render 'shared/footer' %>
       </div>
