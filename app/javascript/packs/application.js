@@ -17,10 +17,12 @@ ActiveStorage.start()
 import * as bootstrap from 'bootstrap'
 import "../stylesheets/application"
 
+document.addEventListener('turbolinks:load', function(event) {
+  const tabsElement = document.querySelector(".js-tabs");
+  console.log("tabsElement", tabsElement);
+  if (tabsElement) tabs(tabsElement);
+})
 
-const tabsElement = document.querySelector(".js-tabs");
-console.log("tabsElement", tabsElement);
-if (tabsElement) tabs(tabsElement);
 
 document.addEventListener("DOMContentLoaded", function(event) {
   var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))

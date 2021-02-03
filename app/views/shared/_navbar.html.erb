@@ -8,8 +8,8 @@
     </div>
 
     <%= form_with url: search_page_path, class: "d-flex", method: :get do |form| %>
-      <%= form.text_field :search, placeholder: "search", class: "form-control me-2" %>
-      <%= form.submit "Enter Game Number", class: "btn btn-outline-success" %>
+      <%= form.text_field :search, placeholder: "Game ID", class: "form-control me-2" %>
+      <%= form.submit "Search for Game", class: "btn btn-outline-success" %>
     <% end %>
   </div>
 </nav>

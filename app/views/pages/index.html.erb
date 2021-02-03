@@ -1,11 +1,10 @@
-<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+<div class="jumbotron p-4 p-md-5 text-black rounded bg-light">
   <h1 class="display-4 font-italic">Bridge Hands Generator</h1>
   <p class="lead">A utility for generating Bridge hands to facilitate remote play.</p>
   <hr class="my-4">
-  <p class="lead my-5">Assign directions (North, South, East or West) to your bridge chums and then share a game code so they can retrieve their hands</p>
-  <%= link_to 'Generate New Game', new_game_path %>
-  <p>View Specific Game</p>
-
-  <%= link_to 'Games listing', games_path %>
-  <a class="btn btn-success btn-lg" href="#" role="button">Sign up!</a>
+  <%= image_tag("compass_bhg.png", width: 250, class: "rounded mx-auto d-block", alt: "compass") %>
+  <p class="lead my-5">Assign directions (North, South, East or West) to your bridge chums and then share a game code so they can retrieve their hand</p>
+  <p class="my-5">There are over 100 games available, just search for a game using an id from 1 to 100, or view the <%= link_to "games listing", games_path %>. If you run out and need to create a new game to play, please register.</p>
+  <p class="my-5">Registered users can create new games and also have access to hand statistics.</p>
+  <%= link_to 'Generate New Game', new_game_path, class: "btn btn-outline-success" %>
 </div>

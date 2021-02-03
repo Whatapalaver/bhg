@@ -22,10 +22,10 @@ class GamesController < ApplicationController
     deck = Deck.new.shuffle!
 
     @game = Game.new()
-    @game.game_hands.build(direction: :N, cards: deck.deal(13).sort())
-    @game.game_hands.build(direction: :S, cards: deck.deal(13).sort())
-    @game.game_hands.build(direction: :E, cards: deck.deal(13).sort())
-    @game.game_hands.build(direction: :W, cards: deck.deal(13).sort())
+    @game.game_hands.build(direction: :N, cards: deck.deal(13).sort().map {|card| card.to_s}.join(" "))
+    @game.game_hands.build(direction: :S, cards: deck.deal(13).sort().map {|card| card.to_s}.join(" "))
+    @game.game_hands.build(direction: :E, cards: deck.deal(13).sort().map {|card| card.to_s}.join(" "))
+    @game.game_hands.build(direction: :W, cards: deck.deal(13).sort().map {|card| card.to_s}.join(" "))
   end
 
   # GET /games/1/edit
@@ -76,7 +76,7 @@ class GamesController < ApplicationController
     if search_params['search'].blank?  
       redirect_to games_path, notice: 'Search was blank.'
     else  
-      @game = Game.find(search_params[:search].to_i)
+      @game = Game.find_by_seed(search_params[:search].to_i)
       redirect_to @game
     end
   end

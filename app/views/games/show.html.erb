@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<div class = "js-tabs">
+<div class = "js-tabs p-4 p-md-5 text-black rounded bg-light">
+  <p id="notice"><%= notice %></p>
   <div class="btn-toolbar nav nav-tabs justify-content-center">
     <div class="btn-group mr-2" role="group" aria-label="Game group">
         <%= button_tag 'Game', type: 'button',
@@ -20,7 +19,7 @@
 
   <div class="d-flex justify-content-center mb-3 mt-3">
     <section class="tabs__tab js-tabs-tab is-active" data-tab="0">
-        <h2>Game ID: <%= @game.id %></h2>
+        <h2>Game ID: <%= @game.seed %></h2>
         <p>Select your hand direction above to reveal your hand</p>
     </section>
 
@@ -135,6 +134,5 @@
   </div>
 </div>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Add Game Hand', game_game_hands_path(@game) %> |
-<%= link_to 'Back', games_path %>
+
+<%= link_to 'Back', games_path, class: "breadcrumb" %>
