@@ -16,13 +16,13 @@
     <%= form.select :category, Game.categories.keys %>
   </div>
 
-  <fieldset>
-      <legend>Hands:</legend>
-      <%= form.fields_for :game_hands do |game_hand_form| %>
-          <%= render "game_hands_fields", form: game_hand_form %>
-      <% end %>
-  </fieldset>
-
+  <div class="display-none">
+    <fieldset>
+        <%= form.fields_for :game_hands do |game_hand_form| %>
+            <%= render "game_hands_fields", form: game_hand_form %>
+        <% end %>
+    </fieldset>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

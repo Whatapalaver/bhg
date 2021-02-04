@@ -2,17 +2,19 @@
   
   <div class="container-fluid">
     <div class="navbar-nav">
-      <%= link_to "BHG", root_path, class: "navbar-brand", id: "logo" %>
+      <%= link_to image_tag("icon.png", class: "navbar-brand"), root_path %> 
+      <li class="navbar-brand text-white pt-2 mt-1">BHG</li>
+    </div>
+    <div class="navbar-nav">
       <%= link_to "Games", games_path, class: "nav-link" %>
       <%= link_to "About", about_path, class: "nav-link" %>
     </div>
     <div class="navbar-nav">
     <% if user_signed_in? %>
-      <li class="text-white">Logged in as <strong><%= current_user.username %></strong></li>
-      <%= link_to 'Edit profile', edit_user_registration_path, class: "nav-link" %> |
+      <%= link_to current_user.username, edit_user_registration_path, class: "nav-link text-white" %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
     <% else %>
-      <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %> |
+      <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
       <%= link_to "Login", new_user_session_path, class: "nav-link" %>
     <% end %>
     </div>

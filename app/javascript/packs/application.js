@@ -21,10 +21,7 @@ document.addEventListener('turbolinks:load', function(event) {
   const tabsElement = document.querySelector(".js-tabs");
   console.log("tabsElement", tabsElement);
   if (tabsElement) tabs(tabsElement);
-})
 
-
-document.addEventListener("DOMContentLoaded", function(event) {
   var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
   var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
     return new bootstrap.Popover(popoverTriggerEl)
