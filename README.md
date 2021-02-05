@@ -6,9 +6,13 @@ Inspired by a world in which 4 people are not allowed to gather around a table w
 
 This is a Rails app which generates four hands and allow you to share the game code with friends far afield, so they can assemble their hands from disparate packs of cards.
 
+![Example Bridge Hand](./readme_images/bhg_hand.png)
+
 ## Working Version
 
-Currently hosted on Heroku as [https://bridge-hand-gen.herokuapp.com/](Bridge Hands Generator).
+Currently hosted on Heroku as [Bridge Hands Generator](https://bridge-hand-gen.herokuapp.com/).
+
+![Bridge Hand Generator](./readme_images/bhg_home.png)
 
 ## How to Run
 
@@ -25,6 +29,6 @@ to follow..
 
 ## How to Deploy
 
-to follow..
+I've deployed my app to Heroku, [their guidance is excellent](https://devcenter.heroku.com/articles/getting-started-with-rails6) so I won't recreate it here.
 
 ...
