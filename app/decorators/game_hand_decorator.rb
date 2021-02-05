@@ -3,8 +3,6 @@ class GameHandDecorator < Draper::Decorator
 
   def clubs
     clubs = []
-    hand = object.cards.split(" ")
-    print(hand)
     hand.each do |card|
       if card[0] == 'C' then clubs.append(card[1,2]) end
     end
@@ -13,7 +11,7 @@ class GameHandDecorator < Draper::Decorator
 
   def diamonds
     diamonds = []
-    object.cards.split(" ").each do |card|
+    hand.each do |card|
       if card[0] == 'D' then diamonds.append(card[1,2]) end
     end
     diamonds.join(", ")
@@ -21,7 +19,7 @@ class GameHandDecorator < Draper::Decorator
 
   def hearts
     hearts = []
-    object.cards.split(" ").each do |card|
+    hand.each do |card|
       if card[0] == 'H' then hearts.append(card[1,2]) end
     end
     hearts.join(", ")
@@ -29,10 +27,29 @@ class GameHandDecorator < Draper::Decorator
 
   def spades
     spades = []
-    object.cards.split(" ").each do |card|
+    hand.each do |card|
       if card[0] == 'S' then spades.append(card[1,2]) end
     end
+    print(spades)
     spades.join(", ")
+  end
+
+  def points
+    hand.reduce(0) {|accum, card| accum + Card::VALUES[card[1,2].to_sym]} 
+  end
+
+  def hand
+    object.cards.split(" ")
+  end
+
+  def distribution
+    dist = []
+    dist.append(clubs.split(', ').length)
+    dist.append(diamonds.split(', ').length)
+    dist.append(hearts.split(', ').length)
+    dist.append(spades.split(', ').length)
+    dist.sort!.reverse!
+    dist.join("-")
   end
 
 end

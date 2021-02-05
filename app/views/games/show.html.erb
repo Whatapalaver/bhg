@@ -2,7 +2,7 @@
   <div class="btn-toolbar nav nav-tabs justify-content-center">
     <div class="btn-group mr-2" role="group" aria-label="Game group">
         <%= button_tag 'Game', type: 'button',
-          class: 'btn btn-outline-success m-1 js-tabs-button is-current', data: { tab: 0 } %>
+          class: 'btn btn-info m-1 js-tabs-button is-current', data: { tab: 0 } %>
     </div>
     <div class="btn-group mr-2" role="group" aria-label="Hands group">
         <%= button_tag 'North', type: 'button',
@@ -13,6 +13,10 @@
           class: 'btn btn-secondary m-1 js-tabs-button', data: { tab: 3 } %>
         <%= button_tag 'West', type: 'button',
           class: 'btn btn-secondary m-1 js-tabs-button', data: { tab: 4 } %>
+    </div>
+    <div class="btn-group mr-2" role="group" aria-label="Stats group">
+        <%= button_tag 'Game Over', type: 'button',
+          class: 'btn btn-info m-1 js-tabs-button', data: { confirm: 'Spoiler alert - is the game is over?', tab: 5 } %>
     </div>
   </div>
 
@@ -45,6 +49,14 @@
               <%= @north.spades %>
             </li>
           </ul>
+          <ul class="list-group">
+            <li class="list-group-item border-0">
+              points = <%= @north.points %>
+            </li>
+            <li class="list-group-item border-0">
+              distribution = <%= @north.distribution %>
+            </li>
+          </ul>
         </div>
 
     </section>
@@ -73,6 +85,14 @@
               <%= @east.spades %>
             </li>
           </ul>
+          <ul class="list-group">
+            <li class="list-group-item border-0">
+              points = <%= @east.points %>
+            </li>
+            <li class="list-group-item border-0">
+              distribution = <%= @east.distribution %>
+            </li>
+          </ul>
         </div>
     </section>
 
@@ -97,6 +117,14 @@
             <li class="list-group-item border-0">
               <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-spade" style="font-size: 2rem; color: cornflowerblue;"></i></span>
               <%= @south.spades %>
+            </li>
+          </ul>
+          <ul class="list-group">
+            <li class="list-group-item border-0">
+              points = <%= @south.points %>
+            </li>
+            <li class="list-group-item border-0">
+              distribution = <%= @south.distribution %>
             </li>
           </ul>
         </div>
@@ -125,8 +153,161 @@
               <%= @west.spades %>
             </li>
           </ul>
+          <ul class="list-group">
+            <li class="list-group-item border-0">
+              points = <%= @west.points %>
+            </li>
+            <li class="list-group-item border-0">
+              distribution = <%= @west.distribution %>
+            </li>
+          </ul>
         </div>
+    </section>  
+
+    <section class="tabs__tab js-tabs-tab" data-tab="5">
+      <div class="container">
+        <div class="row justify-content-md-center pb-2">
+          <div class="col-md-auto">
+            <div class="card" style="width: 13rem;">
+              <div class="card-header">
+                NORTH
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-club" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @north.clubs %>
+                </li>
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-diamond" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @north.diamonds %>
+                </li>
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-heart" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @north.hearts %>
+                </li>
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-spade" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @north.spades %>
+                </li>
+              </ul>
+              <ul class="list-group">
+                <li class="list-group-item border-0">
+                  points = <%= @north.points %>
+                </li>
+                <li class="list-group-item border-0">
+                  distribution = <%= @north.distribution %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center pb-2">
+          <div class="col-md-auto">
+            <div class="card" style="width: 13rem;">
+              <div class="card-header">
+                WEST
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-club" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @west.clubs %>
+                </li>
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-diamond" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @west.diamonds %>
+                </li>
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-heart" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @west.hearts %>
+                </li>
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-spade" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @west.spades %>
+                </li>
+              </ul>
+              <ul class="list-group">
+                <li class="list-group-item border-0">
+                  points = <%= @west.points %>
+                </li>
+                <li class="list-group-item border-0">
+                  distribution = <%= @west.distribution %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-auto">
+            <div class="card" style="width: 13rem;">
+              <div class="card-header">
+                EAST
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-club" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @east.clubs %>
+                </li>
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-diamond" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @east.diamonds %>
+                </li>
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-heart" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @east.hearts %>
+                </li>
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-spade" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @east.spades %>
+                </li>
+              </ul>
+              <ul class="list-group">
+                <li class="list-group-item border-0">
+                  points = <%= @east.points %>
+                </li>
+                <li class="list-group-item border-0">
+                  distribution = <%= @east.distribution %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center pb-2">
+          <div class="col-md-auto">
+            <div class="card" style="width: 13rem;">
+              <div class="card-header">
+                SOUTH
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item border-0">
+                <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-club" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @south.clubs %>
+                </li>
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-diamond" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @south.diamonds %>
+                </li>
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-heart" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @south.hearts %>
+                </li>
+                <li class="list-group-item border-0">
+                  <span class="badge badge-secondary badge-pill"><i class="bi bi-suit-spade" style="font-size: 1rem; color: cornflowerblue;"></i></span>
+                  <%= @south.spades %>
+                </li>
+              </ul>
+              <ul class="list-group">
+                <li class="list-group-item border-0">
+                  points = <%= @south.points %>
+                </li>
+                <li class="list-group-item border-0">
+                  distribution = <%= @south.distribution %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+
+
   </div>
   <div>
     <p>If you need to share you device with your bridge partner please select the Game tab before handing over (to protect the sanctity of your cards)</p>

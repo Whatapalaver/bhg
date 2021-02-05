@@ -4,7 +4,7 @@ class Card
 
   # class constants
   SUITS = %i[ C D H S ]
-  RANKS  = %i[ 2 3 4 5 6 7 8 9 10 J Q K A ]
+  RANKS  = %i[ A K Q J 10 9 8 7 6 5 4 3 2]
   VALUES = {J: 1, Q: 2, K: 3, A: 4}
   VALUES.default = 0
 
