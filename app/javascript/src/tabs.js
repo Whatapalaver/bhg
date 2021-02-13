@@ -1,11 +1,8 @@
 export default function tabs (element) {
   if (!element) return;
-  console.log('element', element)
   const buttons = Array.from(element.querySelectorAll('.js-tabs-button'));
   const allTabs = Array.from(element.querySelectorAll('.js-tabs-tab'));
 
-  console.log("buttons", buttons)
-  console.log("tabs", allTabs)
 
   element.addEventListener('click', event => {
     const { target } = event;

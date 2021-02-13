@@ -8,7 +8,6 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import tabs from "../src/tabs"
-console.log("Hello from application.js")
 
 Rails.start()
 Turbolinks.start()
@@ -19,7 +18,6 @@ import "../stylesheets/application"
 
 document.addEventListener('turbolinks:load', function(event) {
   const tabsElement = document.querySelector(".js-tabs");
-  console.log("tabsElement", tabsElement);
   if (tabsElement) tabs(tabsElement);
 
   var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
