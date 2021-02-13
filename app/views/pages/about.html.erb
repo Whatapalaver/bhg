@@ -1,7 +1,33 @@
 <div class="jumbotron p-4 p-md-5 text-black rounded bg-light">
   <div id="page-content">
     <div class="container" id="home-container">
-      <h1>How to Play Remote Bridge using BHG</h1>
+      <h1>Playing Remote Bridge</h1>
+        <p class="my-4">I hadn't been playing Bridge very long before we were thrown into the first Covid lockdown and it properly messed with our little groups ability to gather together for a few rounds of bridge.</p>
+        <p class="my-4">Luckily one of group discovered a remote bridge playing <%= link_to 'utility', 'https://blueberrybridge.com/how-to-play-bridge-with-your-friends-while-social-isolating/' %> where we could download an image with sets of hands.</p>
+        <p class="my-4">There were only 24 games available and we had to be careful not to accidentally look at each others hands, so after a few weeks of remote play when we were running out of bridge hands, I thought I should have a go at writing our own Remote Bridge Hands generator.</p>
+      <hr class="my-4">
+      <h2>How to use the BHG app for Remote Bridge</h2>
+        <p class="my-4">The BHG app holds a minimum of 100 games at any one time. All the games are re-dealt every week (Sunday at 1am) to ensure that there are a steady stream of fresh games.</p>
+        <p class="my-4">The games are numbered 1 to 100. Agree with your bridge chums which game you are to start with - I would suggest starting with Game 1....</p>
+        <p class="my-4">If you enter '1' into the search box and hit 'Search for Game' you will be presented with the Game page.</p>
+        <%= image_tag("search_for_game1.png", width: 400, class: "rounded mx-auto d-block img-fluid mb-2", alt: "compass") %>
+        <p class="my-4">Each player can then hit the appropriate direction tab to reveal their bridge hand.</p>
+        <%= image_tag("west_hand.png", width: 300, class: "rounded mx-auto d-block img-fluid mb-2", alt: "compass") %>
+        <p class="my-4">Each player can view the game details on their own device or if your partner is isolating with you, you may want to share a device. In that case you should hit the 'game' tab before handing your phone or other device to your partner. That prevents any risk of you accidentally showing your hand.</p>
+        <p class="my-4">I've added a high card score for each hand and a distribution indicator for convenience.</p>
+        <p class="my-4">At the end of the game, you can hit the 'Game Over' tab to reveal everyones hands. You can then review your earlier bidding strategy.</p>
+        <%= image_tag("game_over.png", width: 600, class: "rounded mx-auto d-block img-fluid mb-2", alt: "compass") %>
+      <hr class="my-4">
+      <h2>How to play Remote Bridge</h2>
+      <p class="my-4">This is the way we play, where each pair are co-located:</p>
+      <%= image_tag("remote-bridge-zoom.jpg", class: "rounded mx-auto d-block img-fluid mb-5", alt: "compass") %>
+      <ul>
+        <li class="mb-2">We play over zoom. So someone needs to set up a meeting - you can do this for free but you may need to sort out back to back meetings to deal with the time limit</li>
+        <li class="mb-2">Each couple has two devices. We have a laptop for viewing the zoom meeting and a phone (also conneted to the zoom meeting) for capturing our table where we lay the cards</li>
+        <li class="mb-2">Every player needs their <%= link_to 'own pack of cards', 'https://amzn.to/3pi1OEm' %></li>
+        <li class="mb-2">A <%= link_to 'decent tripod', 'https://amzn.to/3d7g2FD' %> helps so you can angle your phone directly over the playing table and give your competitors a decent view of dummy and your played cards</li>
+        <li class="mb-2">I make sure audio is disabled on my phones zoom call so we don't have feedback and then I set my laptop to gallery view so we have 2 tables and 2 couples on view</li>
+      </ul>
     </div>
   </div>
 </div>

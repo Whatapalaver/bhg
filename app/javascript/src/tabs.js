@@ -6,8 +6,6 @@ export default function tabs (element) {
 
   element.addEventListener('click', event => {
     const { target } = event;
-    console.log("clicked")
-    console.log("target", target)
 
     if (target.matches('.js-tabs-button')) {
       const targetTab = element.querySelector(`.js-tabs-tab[data-tab="${target.dataset.tab}"]`);

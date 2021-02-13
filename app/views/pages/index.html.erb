@@ -1,11 +1,12 @@
 <div class="jumbotron p-4 p-md-5 text-black rounded bg-light">
   <h1 class="display-4 font-italic">Bridge Hands Generator</h1>
-  <p class="lead">A utility for generating Bridge hands to facilitate remote play.</p>
+  <p class="lead">A utility for generating Bridge hands to facilitate remote bridge games.</p>
   <hr class="my-4">
   <%= image_tag("compass_bhg.png", width: 250, class: "rounded mx-auto d-block", alt: "compass") %>
   <p class="lead my-5">Assign directions (North, South, East or West) to your bridge chums and then share a game code so they can retrieve their hand</p>
   <p class="my-4">There are over 100 games available, just search for a game using an id from 1 to 100, or view the <%= link_to "games listing", games_path %>. If you run out and need to create a new game to play, please register.</p>
   <p class="my-4">All the games will be refreshed weekly - Sunday at 1am London time, to ensure there are always fresh games to play.</p>
+  <p class="my-4">If you need some guidance on how you can play remotely check out the <%= link_to 'About', about_path %> page.</p>
   <p class="my-4">Registered users can create new games and will (eventually) have access to hand statistics.</p>
   <% if user_signed_in? %>
     <%= link_to 'Generate New Game', new_game_path, class: "btn btn-outline-success" %>
