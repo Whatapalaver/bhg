@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise'
 gem 'draper'
-
+gem 'google-analytics-rails', '1.1.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
