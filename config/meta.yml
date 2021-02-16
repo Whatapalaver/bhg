@@ -1,5 +1,5 @@
 meta_product_name: "BHG"
 meta_title: "Remote Bridge - The Bridge Hand Generator"
-meta_description: "Enabling socially distant players to play remote bridge."
-meta_image: "west_hand.png" # should exist in `app/assets/images/`
+meta_description: "Enabling socially distant players to play from afar"
+meta_image: "twitter_card.png" # should exist in `app/assets/images/`
 twitter_account: "@DoctorMoxie"   # required for Twitter Cards
