@@ -11,4 +11,8 @@ class Game < ApplicationRecord
       self.seed = Game.maximum(:seed).to_i.next
     end
   end
+
+  def to_param
+    seed
+  end
 end
